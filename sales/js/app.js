@@ -239,9 +239,3 @@ locationSeaTac.render();
 locationSeattleCenter.render();
 locationCapitolHill.render();
 locationAlki.render();
-
-// console.log(locationFirstPike.cookiesSold());
-// console.log(locationSeaTac.cookiesSold());
-// console.log(locationSeattleCenter.cookiesSold());
-// console.log(locationCapitolHill.cookiesSold());
-// console.log(locationAlki.cookiesSold());
