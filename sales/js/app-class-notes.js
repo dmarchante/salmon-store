@@ -26,7 +26,15 @@ let pike = {
   costumersEachHour: [],
   cookiesEachHour: [],
   totalCookiesForDay: 0,
-  calcCustomersEachHour: function() {},
+  calcCustomersEachHour: function() {
+    // genereate a random number between min and max
+    rand(this.minCustomerPerHour, this.maxCustomerPerHour);
+  },
   calcCookiesEachHour: function() {},
   render: function() {}
+}
+
+function rand(min, max) {
+  // following line MDN Math.random docs
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
