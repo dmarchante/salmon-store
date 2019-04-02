@@ -16,7 +16,7 @@ const hoursOpen = [
   '6pm',
   '7pm',
   '8pm'
-]
+];
 
 const locationFirstPike = {
   minCustomer: 23,
@@ -66,7 +66,8 @@ const locationSeaTac = {
   maxCustomer: 24,
   avgCookie: 1.2,
   actualCustomer: function() {
-      return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+    // following line MDN Math.random docs
+    return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
   },
   cookiesSold: function() {
     let cookiesSoldHourlyList = [];
