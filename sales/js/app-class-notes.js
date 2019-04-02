@@ -18,23 +18,53 @@ const hours = [
   '8pm'
 ];
 
-let pike = {
+let locationFirstPike = {
   minCustomerPerHour: 23,
-  maxCustomerPerHour: 44,
-  avgCookiesPerCustomer: 3.14,
-  locationName: 'Pike PLace Market',
+  maxCustomerPerHour: 65,
+  avgCookiesPerCustomer: 6.3,
+  locationName: 'Pike Place Market',
   costumersEachHour: [],
   cookiesEachHour: [],
-  totalCookiesForDay: 0,
-  calcCustomersEachHour: function() {
-    // genereate a random number between min and max
-    rand(this.minCustomerPerHour, this.maxCustomerPerHour);
-  },
-  calcCookiesEachHour: function() {},
-  render: function() {}
+  totalCookiesPerDay: 0,
+}
+
+locationFirstPike.calcCustomersEachHour = function() {
+  // genereate a random number between min and max
+  for(let i = 0; i < hours.length; i++) {
+    // let customersVisited = rand(this.minCustomerPerHour, this.maxCustomerPerHour);
+    // customersEachHour.push(customersVisited);
+
+    this.customersEachHour.push(rand(this.minCustomerPerHour, this.maxCustomerPerHour));
+  }
+};
+
+locationFirstPike.calcCookiesEachHour = function() {
+  for(let i; i < hours.length; i++) {
+    let oneHour = Math.ceil(this.customersEachHour[i] * this.avgCookiesPerCustomer);
+
+    this.cookiesEachHour.push(oneHour);
+    this.totalCookiesPerDay += oneHour;
+  }
+}
+
+locationFirstPike.render = function() {
+  let ulEl = document.getElementById('firstPike');
+
+  for(let i = 0; i < hours.length; i++) {
+    const liEl = document.createElement('li');
+    
+    liEl.textContent = `${hours[i]}: ${this.cookiesEachHour[i]}`;
+    ulEl.appendChild(liEl);
+  }
+  // create, content, append for total
+  liEl = document.createElement('li');
+  liEl.textContent = `Total: ${this.totalCookiesPerDay}`;
+  ulEl.appendChild(liEl);
 }
 
 function rand(min, max) {
   // following line MDN Math.random docs
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+locationFirstPike.render();
