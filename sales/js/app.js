@@ -23,7 +23,10 @@ const locationFirstPike = {
   maxCustomer: 65,
   avgCookie: 6.3,
   actualCustomer: function() {
-      return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+    return (
+      Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) +
+      this.minCustomer
+    );
   },
   cookiesSold: function() {
     let cookiesSoldHourlyList = [];
@@ -43,7 +46,7 @@ const locationFirstPike = {
     for (let i = 0; i < cookiesSoldArray.length; i++) {
       cookiesSoldTotal += cookiesSoldArray[i];
     }
-    
+
     cookiesSoldHourlyList.push(`Total: ${cookiesSoldTotal}`);
 
     return cookiesSoldHourlyList;
@@ -52,14 +55,14 @@ const locationFirstPike = {
     const ulElFirstPike = document.getElementById('firstPike');
     const totalCookiesSold = this.cookiesSold();
 
-    for (let i = 0; i < totalCookiesSold.length; i++){
-      const liElFirstPike = document.createElement('li')
+    for (let i = 0; i < totalCookiesSold.length; i++) {
+      const liElFirstPike = document.createElement('li');
 
       liElFirstPike.textContent = totalCookiesSold[i];
       ulElFirstPike.appendChild(liElFirstPike);
     }
-  },
-}
+  }
+};
 
 const locationSeaTac = {
   minCustomer: 3,
@@ -67,7 +70,10 @@ const locationSeaTac = {
   avgCookie: 1.2,
   actualCustomer: function() {
     // following line MDN Math.random docs
-    return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+    return (
+      Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) +
+      this.minCustomer
+    );
   },
   cookiesSold: function() {
     let cookiesSoldHourlyList = [];
@@ -87,7 +93,7 @@ const locationSeaTac = {
     for (let i = 0; i < cookiesSoldArray.length; i++) {
       cookiesSoldTotal += cookiesSoldArray[i];
     }
-    
+
     cookiesSoldHourlyList.push(`Total: ${cookiesSoldTotal}`);
 
     return cookiesSoldHourlyList;
@@ -96,21 +102,24 @@ const locationSeaTac = {
     const ulElSeaTac = document.getElementById('seaTac');
     const totalCookiesSold = this.cookiesSold();
 
-    for (let i = 0; i < totalCookiesSold.length; i++){
-      const liElSeaTac = document.createElement('li')
+    for (let i = 0; i < totalCookiesSold.length; i++) {
+      const liElSeaTac = document.createElement('li');
 
       liElSeaTac.textContent = totalCookiesSold[i];
       ulElSeaTac.appendChild(liElSeaTac);
     }
-  },
-}
+  }
+};
 
 const locationSeattleCenter = {
   minCustomer: 11,
   maxCustomer: 38,
   avgCookie: 3.7,
   actualCustomer: function() {
-      return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+    return (
+      Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) +
+      this.minCustomer
+    );
   },
   cookiesSold: function() {
     let cookiesSoldHourlyList = [];
@@ -130,7 +139,7 @@ const locationSeattleCenter = {
     for (let i = 0; i < cookiesSoldArray.length; i++) {
       cookiesSoldTotal += cookiesSoldArray[i];
     }
-    
+
     cookiesSoldHourlyList.push(`Total: ${cookiesSoldTotal}`);
 
     return cookiesSoldHourlyList;
@@ -139,21 +148,24 @@ const locationSeattleCenter = {
     const ulElSeattleCenter = document.getElementById('seattleCenter');
     const totalCookiesSold = this.cookiesSold();
 
-    for (let i = 0; i < totalCookiesSold.length; i++){
-      const liElSeattleCenter = document.createElement('li')
+    for (let i = 0; i < totalCookiesSold.length; i++) {
+      const liElSeattleCenter = document.createElement('li');
 
       liElSeattleCenter.textContent = totalCookiesSold[i];
       ulElSeattleCenter.appendChild(liElSeattleCenter);
     }
-  },
-}
+  }
+};
 
 const locationCapitolHill = {
   minCustomer: 20,
   maxCustomer: 38,
   avgCookie: 2.3,
   actualCustomer: function() {
-      return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+    return (
+      Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) +
+      this.minCustomer
+    );
   },
   cookiesSold: function() {
     let cookiesSoldHourlyList = [];
@@ -173,7 +185,7 @@ const locationCapitolHill = {
     for (let i = 0; i < cookiesSoldArray.length; i++) {
       cookiesSoldTotal += cookiesSoldArray[i];
     }
-    
+
     cookiesSoldHourlyList.push(`Total: ${cookiesSoldTotal}`);
 
     return cookiesSoldHourlyList;
@@ -182,21 +194,24 @@ const locationCapitolHill = {
     const ulElCapitolHill = document.getElementById('capitolHill');
     const totalCookiesSold = this.cookiesSold();
 
-    for (let i = 0; i < totalCookiesSold.length; i++){
-      const liElCapitolHill = document.createElement('li')
+    for (let i = 0; i < totalCookiesSold.length; i++) {
+      const liElCapitolHill = document.createElement('li');
 
       liElCapitolHill.textContent = totalCookiesSold[i];
       ulElCapitolHill.appendChild(liElCapitolHill);
     }
-  },
-}
+  }
+};
 
 const locationAlki = {
   minCustomer: 2,
   maxCustomer: 16,
   avgCookie: 4.6,
   actualCustomer: function() {
-      return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+    return (
+      Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) +
+      this.minCustomer
+    );
   },
   cookiesSold: function() {
     let cookiesSoldHourlyList = [];
@@ -216,7 +231,7 @@ const locationAlki = {
     for (let i = 0; i < cookiesSoldArray.length; i++) {
       cookiesSoldTotal += cookiesSoldArray[i];
     }
-    
+
     cookiesSoldHourlyList.push(`Total: ${cookiesSoldTotal}`);
 
     return cookiesSoldHourlyList;
@@ -225,14 +240,14 @@ const locationAlki = {
     const ulElAlki = document.getElementById('alki');
     const totalCookiesSold = this.cookiesSold();
 
-    for (let i = 0; i < totalCookiesSold.length; i++){
-      const liElAlki = document.createElement('li')
+    for (let i = 0; i < totalCookiesSold.length; i++) {
+      const liElAlki = document.createElement('li');
 
       liElAlki.textContent = totalCookiesSold[i];
       ulElAlki.appendChild(liElAlki);
     }
-  },
-}
+  }
+};
 
 locationFirstPike.render();
 locationSeaTac.render();
