@@ -16,7 +16,7 @@ const hoursOpen = [
   '6pm',
   '7pm',
   '8pm'
-]
+];
 
 const locationFirstPike = {
   minCustomer: 23,
