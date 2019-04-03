@@ -12,6 +12,7 @@ function Site(name, minCustomer, maxCustomer, avgCookie) {
   this.customerVisitsHourly = [];
   this.cookiesSoldHourly = [];
   this.totalCookiesDaily = 0;
+  allSites.push(this);
 }
 
 new Site('First and Pike', 23, 65, 6.3);
@@ -35,19 +36,19 @@ Site.prototype.cookiesSoldHourlyCalc = function() {
 };
 
 Site.prototype.render = function() {
-  const ulEl= document.getElementById('firstPike');
-  let liEl = document.createElement('li');
+  let trEl = document.createElement('tr');
+  let tdEl = document.createElement('td');
 
-  for (let i = 0; i < hoursOpen.length; i++) {
-    liEl = document.createElement('li');
+  tdEl.textContent = this.siteName;
+  trEl.appendChild(tdEl);
 
-    liEl.textContent = `${hoursOpen[i]} ${this.cookiesSoldHourly[i]}`;
-    ulEl.appendChild(liEl);
+  for (let i = 0; i < this.cookiesSoldHourly.length; i++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.cookiesSoldHourly[i];
+    trEl.appendChild(tdEl);
   }
 
-  liEl = document.createElement('li');
-  liEl.textContent = `Total: ${this.totalCookiesDaily}`;
-  ulEl.appendChild(liEl);
+  siteTable.appendChild(trEl);
 };
 
 function randomize(min, max) {
@@ -74,7 +75,8 @@ function renderHeader() {
 
 function renderallSites() {
   for(let i = 0; i < allSites.length; i++){
-    allSites[i].cookiesSold();
+    allSites[i].customerVisitsHourlyCalc();
+    allSites[i].cookiesSoldHourlyCalc();
     allSites[i].render();
   }
 }
@@ -85,11 +87,17 @@ function renderFooter() {
 
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
-  for(let i = 0; i < this.totalCookiesDaily.length; i++) {
-    tdEl = document.createElement('th');
-    tdEl.textContent = this.totalCookiesDaily[i];
-    trEl.appendChild(tdEl);
-  }
+
+  // for(let i = 0; i < this.totalCookiesDaily.length; i++) {
+  //   tdEl = document.createElement('th');
+  //   tdEl.textContent = this.totalCookiesDaily[i];
+  //   trEl.appendChild(tdEl);
+  // }
+
+  // tdEl = document.createElement('th');
+  // tdEl.textContent = this.totalCookiesDaily;
+  // trEl.appendChild(tdEl);
+
   siteTable.appendChild(trEl);
 }
 
