@@ -2,6 +2,7 @@
 
 const siteTable = document.getElementById('sites');
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+const totalCookie = [];
 let allSites = [];
 
 function Site(name, minCustomer, maxCustomer, avgCookie) { 
@@ -88,11 +89,13 @@ function renderFooter() {
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
 
-  // for(let i = 0; i < this.totalCookiesDaily.length; i++) {
-  //   tdEl = document.createElement('th');
-  //   tdEl.textContent = this.totalCookiesDaily[i];
-  //   trEl.appendChild(tdEl);
-  // }
+  for(let i = 0; i < hoursOpen.length; i++) {
+    tdEl = document.createElement('th');
+    for (let j = 0; j < this.totalCookiesDaily.length; j++) {
+      tdEl.textContent = this.totalCookiesDaily[i];
+      trEl.appendChild(tdEl);
+    }
+  }
 
   // tdEl = document.createElement('th');
   // tdEl.textContent = this.totalCookiesDaily;
@@ -103,4 +106,4 @@ function renderFooter() {
 
 renderHeader();
 renderallSites();
-renderFooter();
+// renderFooter();
