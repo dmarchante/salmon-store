@@ -1,12 +1,17 @@
 'use strict';
 
+// Global variables for tabel
 const siteTable = document.getElementById('sites');
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 let cookieSoldHourlySite = [];
 let totalCookiesHourly = 0;
-
 let allSites = [];
 
+// Global variables for DOM manipulation
+// const siteList = document.getElementById('sites');
+const siteForm = document.getElementById('site-form');
+
+// Constructor
 function Site(name, minCustomer, maxCustomer, avgCookie) {
   this.siteName = name;
   this.minCustomer = minCustomer;
@@ -60,6 +65,7 @@ Site.prototype.render = function() {
   siteTable.appendChild(trEl);
 };
 
+// Helper Functions
 function randomize(min, max) {
   // following line line MDN Math.random docs
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -79,6 +85,7 @@ function totalCookiesHourlyCalc() {
   }
 }
 
+// Render Functions
 function renderHeader() {
   let trEl = document.createElement('tr');
   let tdEl = document.createElement('td');
@@ -130,6 +137,8 @@ function renderFooter() {
 }
 
 function renderTable() {
+  siteTable.innerHTML = '';
+
   renderHeader();
   renderallSites();
   renderFooter();
@@ -137,5 +146,32 @@ function renderTable() {
 
 renderTable();
 
-
 // some of the patterns for the constructor were inspired by Sam Hamm (201 - Instructor)
+
+// Event Functions
+function addNewSite(e) {
+  totalCookiesHourly = 0;
+  cookieSoldHourlySite = [];
+
+  for (let i = 0; i < allSites.length; i++) {
+    allSites[i].cookiesSoldHourly = [];
+  }
+
+  e.preventDefault();
+
+  let siteName = event.target.siteName.value;
+  let minCustomer = parseInt(event.target.minCustomer.value);
+  let maxCustomer = parseInt(event.target.maxCustomer.value);
+  let avgCookie = parseInt(event.target.avgCookie.value);
+
+  new Site(siteName, minCustomer, maxCustomer, avgCookie);
+
+  event.target.siteName.value = null;
+  event.target.minCustomer.value = null;
+  event.target.maxCustomer.value = null;
+  event.target.avgCookie.value = null;
+
+  renderTable();
+}
+
+siteForm.addEventListener('submit', addNewSite);
