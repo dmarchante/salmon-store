@@ -50,7 +50,7 @@ input {
   font-size: 14px;
   padding: 5px 10px;
   transition: .18s ease-out;
-  margin-top: 5px;
+  margin: 5px 5px;
 }
 
 input:hover {
@@ -70,7 +70,7 @@ button {
   font-size: 14px;
   padding: 5px 15px 5px;
   box-shadow: inset 0px 1px 16px #00000033;
-  margin-top: 5px;
+  margin: 5px 5px;
 }
 
 button:hover {
@@ -79,7 +79,8 @@ button:hover {
 
 table {
   border-collapse: collapse;
-  width: 100%
+  width: 100%;
+  margin-top: 25px;
 }
 
 tr {
